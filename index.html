@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function computerPlay() {
+            let option = ['Rock', 'Paper', 'Scissors'];
+            i = Math.floor(Math.random() * option.length);
+            action = option[i];
+            return action;
+        }
+        function playRound(playerSelection, computerSelection) {
+            playerSel = playerSelection.toLowerCase();
+            computerSel = computerSelection.toLowerCase();
+            let outcome = 'We Have a Tie'
+            if (playerSel === computerSel) {
+                return outcome;
+            }
+            else if (playerSel === 'paper') {
+                if (computerSel === 'scissors') {
+                    outcome = 'You Lose! Scissors beats Paper';
+                    return outcome;
+
+
+                }
+                else {
+                    outcome = 'You Win! Paper beats Rock';
+                    return outcome;
+                }
+
+            }
+            else if (playerSel === 'rock') {
+                if (computerSel === 'paper') {
+                    outcome = 'You Lose! Paper beats Rock';
+                    return outcome;
+
+
+                }
+                else {
+                    outcome = 'You Win! Rock beats Scissors';
+                    return outcome;
+                }
+            }
+            else {
+                if (computerSel === 'rock') {
+                    outcome = 'You Lose! Rock beats Scissors';
+                    return outcome;
+
+
+                }
+                else {
+                    outcome = 'You Win! Scissors beats Paper';
+                    return outcome;
+                }
+
+            }
+        }
+        // const playerSelection = "rock";
+        // const computerSelection = computerPlay();
+        // console.log(playRound(playerSelection, computerSelection));
+        function game(){
+            let res=''
+            for (let i =0; i<5; i++){
+                const computerSelection = computerPlay();
+                const playerSelection = prompt('Select Rock, Paper, or Scissors:').toLowerCase();
+                res=playRound(playerSelection, computerSelection);
+                console.log(res);
+            }
+        }
+        game();
+    </script>
+</body>
+
+</html>
